@@ -1,0 +1,92 @@
+Code Extract
+=============
+:author:	Ed Keith 
+:email:		edk@users.berlios.de>
+:revdate:	5 Dec 2009
+:revnumber:	1.0.0
+:copyright:	(C) copyright, Ed Keith 2009
+:homepage:	http://developer.berlios.de/projects/codeextactor/
+
+
+
+Motivation
+----------
+
+I like the idea of ProgDoc (http://www.progdoc.org/) but it only supports LaTeX 
+documents and I write most of my documents in Asciidoc 
+(http://www.methods.co.nz/asciidoc/) occasionally I use QuickBook 
+(http://www.boost.org/doc/libs/1_41_0/doc/html/quickbook.html) but never 
+LaTeX. Since both Asciidoc and QuickBook can do their own source code 
+highlighting I do not need most of the heavy lifting that ProgDoc does, what 
+I need is a much simpler program, So I wrote it. I used Python because Asciidoc 
+is written in Python so my Code Extractor will work on any system on which 
+AsciiDoc works.
+
+It was intended to be used with AsciiDoc and Boost Quickbook, both of which 
+can do their own syntax highlighting, so no effort is made to do any 
+processing of the copied text.
+
+The project lives at http://developer.berlios.de/projects/codeextactor/. On 
+line documentation can be found at 
+http://codeextactor.berlios.de/codeextractor.html.
+
+
+
+Description
+-----------
+
+It reads an input text file, anywhere where it finds :<filename[tag]>: on a 
+line by itself it will find the file scan it for the specified tag, and insert 
+the tagged text into the output file.
+
+For example the input file might contain the following.
+
+
+-------------
+
+The following code snippet is very interesting
+
+:example.cpp[tag1]:
+
+
+
+-------------
+
+To Tag text in a file the start of a tagged block is indicated by a line 
+in the file with "{{{tagname" starting withing the first five non-white space 
+chars of the line (to start a comment) and with no more than five chars (to 
+end a comment in the source language if necessary) followed by optional white 
+space following it on the line.
+
+If the tag marker is preceded by white space the same number of chars will be 
+trimmed from the start of each line of the value of the tag.
+
+The tagged text will end with a line containing "}}}" preceded by no more than 
+five chars and follows by nothing but white space.
+
+So the source code could be annotated as follows.
+
+--------------------------
+
+int an_interesting_function(std::string s)
+{
+    . . .
+
+    while(not_done)
+    {
+        // {{{tag1
+	for(int i = 0; i<foo; ++i)
+	{
+	    // interesting stuff goes here
+            . . .
+        }
+        // }}}
+    }
+}
+
+---------------------------
+
+The code between the start and end tag marks without eight the leading spaces.
+
+
+
