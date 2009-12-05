@@ -33,12 +33,12 @@ GNU General Public License (GPL).
 #         with the previous version.
 #    
 #
-__version__ 	= "1.0.0A1"
+__version__ 	= "1.0.0B1"
 __author__ 	= "Ed Keith"
 __copyright__ 	= "Copyright 2009, Ed Keith"
 __license__ 	= "GPL"
 __email__ 	= "edk@users.berlios.de"
-__status__ 	= "Alpha"
+__status__ 	= "Beta"
 __date__ 	= "03 December 2009"
 
 

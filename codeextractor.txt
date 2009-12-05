@@ -86,7 +86,8 @@ int an_interesting_function(std::string s)
 
 ---------------------------
 
-The code between the start and end tag marks without eight the leading spaces.
+The code between the start and end tag marks without eight the leading spaces
+will replace the place holder in the document.
 
 
 
