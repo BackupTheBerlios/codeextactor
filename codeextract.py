@@ -54,7 +54,7 @@ def get_options():
     from optparse import OptionParser
 
     logger.debug('getting options')
-	
+
     usage = "usage: %prog [options] [input file] [output file] " + \
             "if only only one file is given the output will go to stdout. " + \
 	    "if no files are given input is read from stdin."
@@ -90,7 +90,7 @@ def get_options():
 
 
     logger.debug('done reading options %s', options)
-      
+ 
     return options
 
 
@@ -101,7 +101,7 @@ def get_tag(file, tag):
     On the assumption that if we request a tag from a file we will probably 
     want to get other tags from the same file it scans the entire file and 
     caches all tags. 
-    
+ 
     It stores the cached tags in a dictionary with key of 
     (file name, tag name) and value of a string containing the 
     text to be substituted for the tag.
@@ -124,7 +124,7 @@ def get_tag(file, tag):
 	except IOError:
 	    logger.warning("File '%s' not found.", file)
 	    return "*** ERROR *** File %s Not found***\n" % file
-		
+
 	# matches up to 5 chars at start of line followed the "{{{" 
 	# followed by tag name followed by up to five chars 
 	# with optional trailing white space.
@@ -172,7 +172,7 @@ def get_tag(file, tag):
 	return "*** ERROR *** Tag %(tag)s not found in file %(file)s ***\n" % \
 				{'file':file, 'tag':tag}
 
-        
+ 
 def process_file(input, output):
     """
     Reads the input file and writes the output file, both must be open already.
@@ -195,7 +195,7 @@ def process_file(input, output):
 	else:
 	    logger.debug("copying '%s' directly to the output.", l)
             output.write(l)
-   
+ 
 
 
 def setup_logging():
@@ -215,12 +215,12 @@ def setup_logging():
 			format='%(asctime)s %(levelname)s - %(message)s',
 			datefmt='%Y %b %d, %a %H:%M:%S'
 			)
-    
+ 
     logger = logging.getLogger('%s' % __name__)
 
     logger.debug('logger ready')
 
-	
+
 
 def main():
     """
