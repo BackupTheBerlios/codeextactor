@@ -1,7 +1,7 @@
 Code Extract
 =============
 :author:	Ed Keith 
-:email:		edk@users.berlios.de>
+:email:		edk@users.berlios.de
 :revdate:	5 Dec 2009
 :revnumber:	1.0.0
 :copyright:	(C) copyright, Ed Keith 2009
